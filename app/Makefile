@@ -1,5 +1,5 @@
 buildTime = $(shell date -u +%Y-%m-%dT%H:%M:%SZ)
-tag = $(shell git tag --points-at HEAD | grep "^vx" || echo "v0.0.0")
+tag = $(shell git tag --points-at HEAD | grep "^v" || echo "v0.0.0")
 revision ?= $(shell git rev-parse --short HEAD)
 version ?= $(tag)-$(revision)
 
