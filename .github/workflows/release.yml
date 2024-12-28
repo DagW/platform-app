@@ -9,6 +9,9 @@ jobs:
   info:
     uses: ./.github/workflows/info.yml
 
+  build:
+    uses: ./.github/workflows/build.yml
+
   release:
     runs-on: ubuntu-latest
 
