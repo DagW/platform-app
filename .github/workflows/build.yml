@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: build the docker image
-        run: cd app && make build-docker
+        run: cd app && make docker-build
 
       - name: test the app
-        run: cd app && make test-docker
+        run: cd app && make docker-test
