@@ -36,6 +36,6 @@ jobs:
 
       - name: build
         run: |
-          cd app && version="${version}" revision="${revision}" make build-docker
+          cd app && version="${version}" revision="${revision}" make docker-build
           docker image tag docker.io/platform/app:latest docker.io/platform/app:${version}
           # docker push my-username/my-image
