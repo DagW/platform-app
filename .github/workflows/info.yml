@@ -1,0 +1,13 @@
+on:
+  workflow_call:
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "build version: $VERSION"
+          echo "repository name: $GITHUB_REPOSITORY"
+          echo "Branch or tag: $GITHUB_REF"
+          echo "commit: $GITHUB_SHA"

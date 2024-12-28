@@ -16,12 +16,17 @@ run:
 test:
 	go test ./...
 
-build-docker:
+docker-test:
+	docker build -t app/test:latest --target=build .
+	docker run --rm docker.io/app/test:latest make test
+
+docker-build:
 	docker build \
+	--target run \
 	--build-arg buildTime=$(buildTime) \
   --build-arg revision=$(revision) \
   --build-arg version=$(version) \
-  -t nsight/app:latest .
+  -t platform/app:latest .
 
 clean:
 	rm -rf bin
