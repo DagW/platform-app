@@ -10,7 +10,7 @@ jobs:
   info:
     uses: ./.github/workflows/info.yml
 
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,3 +1,5 @@
+name: info
+
 on:
   workflow_call:
 
