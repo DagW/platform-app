@@ -35,9 +35,9 @@ jobs:
 
       - name: set version vars
         run: |
-          export version=${GITHUB_REF#"refs/tags/"}
-          export revision=${GITHUB_SHA:0:16}
-          export major=${version%%.*}
+          echo "version=${GITHUB_REF#"refs/tags/"}" >> $GITHUB_ENV
+          echo "revision=${GITHUB_SHA:0:16}" >> $GITHUB_ENV
+          echo "major=${version%%.*}" >> $GITHUB_ENV
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -61,4 +61,4 @@ jobs:
         run: |
           cd app && version="${version}" revision="${revision}" make docker-build
           docker image tag docker.io/platform/app:latest $REGISTRY/$REPOSITORY/$CONTAINER_NAME:${version}
-          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          docker push $REGISTRY/$REPOSITORY/$CONTAINER_NAME:${version}
