@@ -27,3 +27,4 @@ go.work.sum
 .artifacts
 .venv
 .idea
+bin

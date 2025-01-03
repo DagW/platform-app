@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: build the docker image
-        run: cd app && make docker-build
+        run: make docker-build
 
       - name: test the app
-        run: cd app && make docker-test
+        run: make docker-test

@@ -59,6 +59,6 @@ jobs:
           REPOSITORY: ${{ env.ECR_REPOSITORY }}
           CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
         run: |
-          cd app && version="${version}" revision="${revision}" make docker-build
+          version="${version}" revision="${revision}" make docker-build
           docker image tag docker.io/platform/app:latest $REGISTRY/$REPOSITORY/$CONTAINER_NAME:${version}
           docker push $REGISTRY/$REPOSITORY/$CONTAINER_NAME:${version}
